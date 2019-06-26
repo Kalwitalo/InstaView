@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
   constructor(private postService: PostService,
               config: NgbCarouselConfig) {
     config.interval = 5000;
-    config.wrap = false;
+    config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;
     config.showNavigationArrows = false;
