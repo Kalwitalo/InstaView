@@ -13,6 +13,12 @@ export class PostComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit() {
+
+    const elem = document.getElementById('testando');
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    }
+
   }
 
   findPostByHashtag(hashtag: string): void {
