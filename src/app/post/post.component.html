@@ -6,17 +6,40 @@
         <input matInput placeholder="Hashtag" #hashtag/>
       </mat-form-field>
       <button mat-raised-button color="primary" fxFlex (click)="findPostByHashtag(hashtag.value)">Buscar</button>
+      <button mat-raised-button color="secundary" [disabled]="posts.length <= 0"
+              fxFlex (click)="openFullScreen()">Tela cheia
+      </button>
+
     </div>
   </div>
 
-  <div fxFlex disabled="true">
-    <ui-carousel [infinite]="true" [fade]="true" speed="10000"
-                 [arrows]="false" [dots]="false"
-                 width="800px" height="600px"
-                 *ngIf="posts.length > 0" id="carousel">
-      <ui-carousel-item *ngFor="let post of posts">
-        <img [ui-lazy-load]="post.thumbnail_src" alt="image" style="max-width: 100%; max-height: 100%;">
-      </ui-carousel-item>
-    </ui-carousel>
+  <div fxFlex class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <li class="glide__slide">
+          sajkdajkhda
+        </li>
+        <li class="glide__slide">
+          sajkdajkhda2
+        </li>
+        <li class="glide__slide">
+          sajkdajkhda3
+        </li>
+        <li class="glide__slide">
+          sajkdajkhda4
+        </li>
+      </ul>
+    </div>
   </div>
+
+<!--  <div fxFlex disabled="true">-->
+<!--    <ui-carousel [infinite]="true" [fade]="true" speed="10000"-->
+<!--                 [arrows]="true" [dots]="false" autoPlay="true"-->
+<!--                 width="800px" height="600px"-->
+<!--                 *ngIf="posts.length > 0" id="carousel">-->
+<!--      <ui-carousel-item *ngFor="let post of posts">-->
+<!--        <img [ui-lazy-load]="post.thumbnail_src" alt="image" style="max-width: 100%; max-height: 100%;">-->
+<!--      </ui-carousel-item>-->
+<!--    </ui-carousel>-->
+<!--  </div>-->
 </div>
