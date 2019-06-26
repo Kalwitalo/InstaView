@@ -1,4 +1,45 @@
-.ui-carousel-item {
-  background: black !important;
+img{
+  width: 100%;
+  height: auto;
+}
+
+:-webkit-full-screen {
+  width: 100%;
+  text-align: center;
+}
+
+:-moz-full-screen {
+  width: 100%;
+  text-align: center;
+}
+
+:-ms-fullscreen {
+  width: 100%;
+  text-align: center;
+}
+
+:fullscreen { /* official selector */
+  width: 100%;
+  text-align: center;
+}
+
+:-webkit-full-screen img{
+  width: auto;
+  height: 90vh;
+}
+
+:-moz-full-screen img{
+  width: auto;
+  height: 90vh;
+}
+
+:-ms-fullscreen img{
+  width: auto;
+  height: 90vh;
+}
+
+:fullscreen img{
+  width: auto;
+  height: 90vh;
 }
 
