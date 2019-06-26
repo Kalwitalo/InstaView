@@ -3,11 +3,11 @@ const path = require("path");
 const app = express();
 
 // Serve static files....
-app.use(express.static(__dirname + "/dist/instaview"));
+app.use(express.static(__dirname + "/dist/hashtag-panel"));
 
 // Send all requests to index.html
 app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname + "/dist/instaview/index.html"));
+  res.sendFile(path.join(__dirname + "/dist/hashtag-panel/index.html"));
 });
 
 // default Heroku PORT
