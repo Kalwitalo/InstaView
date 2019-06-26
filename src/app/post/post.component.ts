@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from '../service/postService';
 import {Post} from '../model/Post';
-import Glide from '@glidejs/glide';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-post',
@@ -12,18 +12,18 @@ export class PostComponent implements OnInit {
 
   public posts: Post[] = [];
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService,
+              config: NgbCarouselConfig) {
+    config.interval = 5000;
+    config.wrap = false;
+    config.keyboard = false;
+    config.pauseOnHover = false;
+    config.showNavigationArrows = false;
+    config.showNavigationIndicators = false;
   }
 
   ngOnInit() {
-    /* Get the element you want displayed in fullscreen */
-    new Glide('.glide', {
-      type: 'carousel',
-      startAt: 0,
-      autoplay: 5000,
-    }).mount();
   }
-
 
   openFullScreen(): void {
     const elem = document.getElementById('carousel');

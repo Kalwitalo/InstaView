@@ -7,6 +7,7 @@ import { PostComponent } from './post/post.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PostService} from './service/postService';
 import {MaterialModule} from './material.module';
+import {NgbCarouselModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {MaterialModule} from './material.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    NgbModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
