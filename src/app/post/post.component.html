@@ -5,7 +5,7 @@
         <mat-label>Hashtag</mat-label>
         <input matInput placeholder="Hashtag" #hashtag/>
       </mat-form-field>
-      <button mat-raised-button color="primary" fxFlex (click)="findPostByHashtag(hashtag.value)">Buscar</button>
+      <button mat-raised-button color="primary" fxFlex (click)="findPosts(hashtag.value)">Buscar</button>
       <button mat-raised-button color="secundary" [disabled]="posts.length <= 0"
               fxFlex (click)="openFullScreen()">Tela cheia
       </button>
@@ -13,14 +13,16 @@
     </div>
   </div>
 
-  <ngb-carousel id="carousel" *ngIf="posts.length > 0">
-    <div *ngFor="let post of posts">
-      <ng-template ngbSlide>
-        <div class="parent">
-          <img class="child" [src]="post.thumbnail_src" alt="Image">
-          <img class="child" [src]="post.thumbnail_src" alt="Image" style="width: 50%;height: 50%;">
-        </div>
-      </ng-template>
-    </div>
-  </ngb-carousel>
+  <div id="carousel">
+    <ngb-carousel *ngIf="posts.length > 0">
+      <div *ngFor="let post of posts">
+        <ng-template ngbSlide>
+          <div class="parent">
+            <img class="child" [src]="post.thumbnail_src" alt="Image">
+            <img class="child" [src]="post.thumbnail_src" alt="Image" style="width: 50%;height: 50%;">
+          </div>
+        </ng-template>
+      </div>
+    </ngb-carousel>
+  </div>
 </div>

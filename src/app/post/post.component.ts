@@ -12,6 +12,9 @@ export class PostComponent implements OnInit {
 
   public posts: Post[] = [];
 
+  private refreshIntervalId;
+  private INTERVAL_TO_REFRESH = 1000 * 60 * 10;
+
   constructor(private postService: PostService,
               config: NgbCarouselConfig) {
     config.interval = 5000;
@@ -25,7 +28,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 
-  openFullScreen(): void {
+  public openFullScreen(): void {
     const elem = document.getElementById('carousel');
 
     const docElmWithBrowsersFullScreenFunctions = elem as HTMLElement & {
@@ -45,9 +48,24 @@ export class PostComponent implements OnInit {
     }
   }
 
-  findPostByHashtag(hashtag: string): void {
-    this.posts = [];
+  public findPosts(hashtag: string): void {
+    hashtag = hashtag.trim().replace(/\s/g, '');
+    this.findPostByHashtag(hashtag);
+
+    this.repeatSearchEach10Minutes(hashtag);
+  }
+
+  private repeatSearchEach10Minutes(hashtag: string): void {
+    clearInterval(this.refreshIntervalId);
+
+    this.refreshIntervalId = setInterval(() => {
+      this.findPostByHashtag(hashtag);
+    }, this.INTERVAL_TO_REFRESH);
+  }
+
+  private findPostByHashtag(hashtag: string): void {
     this.postService.getPosts(hashtag).subscribe(posts => {
+      this.posts = [];
       this.posts = posts;
       console.log('Finalizado');
     });
