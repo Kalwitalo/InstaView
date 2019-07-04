@@ -14,9 +14,12 @@
   </div>
 
   <ngb-carousel id="carousel" *ngIf="posts.length > 0">
-    <div id="bg" *ngFor="let post of posts">
+    <div *ngFor="let post of posts">
       <ng-template ngbSlide>
-        <img [src]="post.thumbnail_src" alt="Image" style="max-width: 100%; height: auto">
+        <div class="parent">
+          <img class="child" [src]="post.thumbnail_src" alt="Image">
+          <img class="child" [src]="post.thumbnail_src" alt="Image" style="width: 50%;height: 50%;">
+        </div>
       </ng-template>
     </div>
   </ngb-carousel>
